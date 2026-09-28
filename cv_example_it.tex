@@ -1,0 +1,250 @@
+% ==============================================================================
+% OPZIONI DELLA CLASSE DI DOCUMENTO
+% ==============================================================================
+% Opzioni disponibili:
+%
+% 1. LINGUA:
+%    - italian            : Etichette in italiano, diciture CEFR e testo GDPR a norma.
+%    - english            : Etichette e terminologia in inglese.
+%
+% 2. SCHEMI DI COLORE:
+%    - color-default      : (Predefinito) Blu Europass classico / Grigio neutro
+%    - color-blue         : Celeste / Testo blu notte
+%    - color-blueblack    : Celeste / Testo nero assoluto
+%    - color-green        : Verde menta / Testo verde foresta
+%    - color-greenblack   : Verde menta / Testo nero assoluto
+%    - color-violet       : Lavanda / Testo prugna
+%    - color-violetblack  : Lavanda / Testo nero assoluto
+%
+% 3. LAYOUT & ASSET:
+%    - nologo             : Nasconde il logo Europass nel piè di pagina.
+%    - nototpages         : Mostra "Pagina X" invece di "Pagina X / Y".
+%    - debug              : Attiva 'showframe' per visualizzare gabbie e margini.
+%
+% Motori supportati: Compila direttamente con pdfLaTeX, XeLaTeX e LuaLaTeX.
+% ==============================================================================
+\documentclass[
+    italian,            % Attiva le definizioni e la dicitura GDPR in italiano
+    color-default,      % Prova 'color-blue', 'color-blueblack', 'color-green', ecc.
+    % nologo,           % Decommenta se non disponi del file europass_logo.pdf
+    % nototpages,       % Decommenta per nascondere il conteggio totale delle pagine
+    % debug             % Decommenta per controllare visivamente i margini
+]{tidylatexcv}
+
+% ==============================================================================
+% CONSENSO AL TRATTAMENTO DEI DATI (GDPR)
+% ==============================================================================
+% \tlcvgdpr           -> Usa il testo legale standard per l'Italia (D. Lgs. 196/2003 e Regolamento UE 2016/679).
+% \tlcvgdpr[Testo]    -> Permette di inserire una formula personalizzata.
+% Commentare la riga per escludere del tutto la nota dal piè di pagina.
+\tlcvgdpr
+
+\begin{document}
+
+% ==============================================================================
+% PAGINA 1: LETTERA DI PRESENTAZIONE (COVER LETTER)
+% ==============================================================================
+
+% Intestazione superiore per la lettera (recapiti essenziali)
+\begin{tlcvinfo}
+    \tlcvname{Alex Morgan, M.Sc.}
+    \tlcvaddress{Via Roma 123, 00100 Roma, Italia}
+    \tlcvphone{+39 06 1234567}
+    \tlcvemail{alex_morgan@example.com}
+    \tlcvwebsite{www.alex_morgan.dev}
+\end{tlcvinfo}
+
+% Destinatario e Oggetto della candidatura
+\tlcvrecipient{Acme International S.r.l.}{Alla c.a. del Dipartimento Risorse Umane\\Via dell'Innovazione 45\\20126 Milano, Italia}
+\tlcvsubject{Candidatura per la posizione di Senior Cloud Infrastructure Engineer (Rif. \#2026-ENG)}
+\tlcvopening{Gentile Team di Selezione,}
+\tlcvclosing{Cordiali saluti,}
+
+% Corpo della Lettera
+\begin{tlcvcoverletter}
+    Con la presente desidero sottoporre alla Vostra cortese attenzione la mia candidatura per la posizione di Senior Cloud Infrastructure Engineer attualmente aperta presso Acme International. Con oltre sei anni di esperienza pratica nella progettazione, containerizzazione e orchestrazione di architetture distribuite ad alta affidabilità, sono entusiasta dell'opportunità di poter contribuire alla crescita dei Vostri team ingegneristici.
+
+    Nel mio attuale ruolo presso TechCorp Solutions ho guidato con successo la migrazione della nostra piattaforma centrale verso un'infrastruttura interamente gestita tramite Kubernetes e pipeline CI/CD automatizzate. Questo progetto ha consentito di abbattere i tempi di rilascio da giorni a pochi minuti, riducendo contestualmente i costi operativi infrastrutturali del 22\%.
+
+    Desidero poter illustrare più nel dettaglio, in sede di colloquio, in che modo le mie competenze tecniche sui sistemi distribuiti e l'affidabilità di piattaforma possano integrarsi con i Vostri piani di sviluppo. RingraziandoVi anticipatamente per il tempo e l'attenzione dedicatami, porgo i miei più cordiali saluti.
+\end{tlcvcoverletter}
+
+% Data e Firma per la Lettera di Presentazione
+\tlcvsignature[Roma]
+
+% ==============================================================================
+% PAGINA 2+: CURRICULUM VITAE
+% ==============================================================================
+\newpage
+
+% Intestazione completa per il CV (fototessera, data di nascita, social e IM)
+\begin{tlcvinfo}
+    % Fototessera circolare con doppio bordo colorato
+    % Nota: se non disponi di un'immagine al momento, commenta questa riga.
+    % \tlcvphoto{foto_profilo.jpg} 
+
+    % Dati Anagrafici
+    \tlcvname{Alex Morgan, M.Sc.}
+    \tlcvdateofbirth{15/04/1994}
+    \tlcvgender{Non binario}
+
+    % Cittadinanza (può essere richiamato più volte per doppie cittadinanze)
+    \tlcvnationality{Italiana}
+    \tlcvnationality{Irlandese}
+
+    % Indirizzo di residenza/domicilio
+    \tlcvaddress{Via Roma 123, 00100 Roma, Italia}
+
+    % Recapiti Telefonici
+    \tlcvphone{+39 06 1234567}
+    \tlcvphone[\faWhatsapp]{+39 340 1234567}
+
+    % Posta Elettronica (gestisce nativamente caratteri come l'underscore '_')
+    \tlcvemail{alex_morgan@example.com}
+
+    % Siti Web e Profili Professionali
+    \tlcvwebsite{www.alex_morgan.dev}
+    \tlcvsocial[\faLinkedin]{linkedin.com/in/alex_morgan}
+    \tlcvsocial[\faGithub]{github.com/alex_morgan}
+
+    % Messaggistica Istantanea:
+    % - Con \faTelegram crea in automatico il link https://t.me/
+    % - Con \faWhatsapp crea in automatico il link https://wa.me/
+    \tlcvim[\faTelegram]{alex_morgan_dev}
+    \tlcvim[\faSignal]{+39 340 1234567}
+\end{tlcvinfo}
+
+% ------------------------------------------------------------------------------
+% ESPERIENZA PROFESSIONALE
+% ------------------------------------------------------------------------------
+\tlcvsection{Esperienza Professionale}
+
+% Tutte le chiavi sono racchiuse in parentesi graffe esplicite {...} per evitare
+% conflitti sintattici con virgole, macro o caratteri speciali.
+\tlcventry{
+    title        = {Senior Full-Stack Engineer},
+    organization = {TechCorp Solutions S.r.l.},
+    link         = {techcorp.example.com},
+    date         = {03/2022 -- Presente},
+    location     = {Milano, Italia},
+    sector       = {Tecnologie dell'Informazione \& Servizi Cloud},
+    description  = {
+        \begin{itemize}
+            \item Coordinamento dell'architettura di migrazione dal monolite legacy verso microservizi in Go e Kubernetes, riducendo la latenza del 35\%.
+            \item Attività di formazione e mentoring per 6 sviluppatori junior e mid-level, definendo le linee guida di Continuous Integration e Test-Driven Development.
+            \item Adeguamento e certificazione dei servizi di autenticazione agli standard GDPR e SOC2.
+        \end{itemize}
+    }
+}
+
+\tlcventry{
+    title        = {Software Developer},
+    organization = {InnoSoft Studio},
+    date         = {09/2019 -- 02/2022},
+    location     = {Roma, Italia},
+    link         = {innosoft.example.it},
+    description  = {Sviluppo e manutenzione di API REST e GraphQL ad alto traffico destinate a dashboard finanziarie per clienti enterprise. Collaborazione a stretto contatto con i team UI/UX per la realizzazione di interfacce web responsive in React e TypeScript.}
+}
+
+% ------------------------------------------------------------------------------
+% ISTRUZIONE E FORMAZIONE
+% ------------------------------------------------------------------------------
+\tlcvsection{Istruzione e Formazione}
+
+\tlcventry{
+    title        = {Laurea Magistrale in Informatica},
+    organization = {Sapienza Università di Roma},
+    date         = {2017 -- 2019},
+    location     = {Roma, Italia},
+    eqf          = {7},
+    finalgrade   = {110/110 con Lode},
+    badge        = {https://bestr.it},
+    description  = {
+        \textbf{Tesi di Laurea:} \textit{"Algoritmi di consenso distribuito in reti mesh ad alta latenza"}. \\
+        Specializzazione in Sistemi Distribuiti, Crittografia Applicata e Progettazione di Algoritmi Avanzati.
+    }
+}
+
+\tlcventry{
+    title        = {Laurea Triennale in Ingegneria Informatica},
+    organization = {Università degli Studi di Napoli Federico II},
+    date         = {2014 -- 2017},
+    location     = {Napoli, Italia},
+    eqf          = {6},
+    finalgrade   = {108/110},
+    description  = {Esami caratterizzanti in Architettura degli Elaboratori, Sistemi Operativi, Basi di Dati e Matematica Applicata.}
+}
+
+% ------------------------------------------------------------------------------
+% COMPETENZE LINGUISTICHE
+% ------------------------------------------------------------------------------
+% Griglia ufficiale per le lingue secondo il Quadro Comune Europeo (QCER / CEFR)
+\tlcvsection{Competenze Linguistiche}
+
+\begin{tlcvlanguages}
+    % Mostra le icone nelle intestazioni di colonna (\faHeadphones, \faBookOpen, ecc.)
+    \tlcvlangicons 
+    
+    % Mostra la nota metodologica ufficiale del Consiglio d'Europa a piè di tabella
+    \tlcvcefrlevels 
+
+    % Lingua madre
+    \tlcvmothertongue{Italiano}
+
+    % Altre lingue:
+    % \tlcvlanguage{Lingua}{Ascolto}{Lettura}{Produzione orale}{Interazione orale}{Scrittura}
+    \tlcvlanguage{Inglese}{C2}{C2}{C1}{C1}{C1}
+    \tlcvlanguagecertificate{IELTS Academic: 8.5 Punteggio Complessivo (Rilasciato nel 2023)}
+
+    \tlcvlanguage{Spagnolo}{B1}{B2}{A2}{A2}{A2}
+\end{tlcvlanguages}
+
+% ------------------------------------------------------------------------------
+% COMPETENZE DIGITALI E PERSONALI
+% ------------------------------------------------------------------------------
+\tlcvsection{Competenze Digitali \& Tecniche}
+
+% L'ambiente 'tlcvskills' raggruppa le competenze con separatore automatico.
+% È possibile passare un'etichetta opzionale in grassetto: \begin{tlcvskills}[Categoria]
+\begin{tlcvskills}[Linguaggi di Programmazione]
+    \tlcvskill{Go (Golang)}
+    \tlcvskill{Python}
+    \tlcvskill{TypeScript / JavaScript}
+    \tlcvskill{C/C++}
+    \tlcvskill{SQL}
+\end{tlcvskills}
+
+\begin{tlcvskills}[Cloud \& DevOps]
+    \tlcvskill{Docker}
+    \tlcvskill{Kubernetes}
+    \tlcvskill{AWS (ECS, Lambda, S3, RDS)}
+    \tlcvskill{Terraform}
+    \tlcvskill{GitHub Actions CI/CD}
+\end{tlcvskills}
+
+\begin{tlcvskills}[Framework \& Database]
+    \tlcvskill{React}
+    \tlcvskill{Node.js}
+    \tlcvskill{PostgreSQL}
+    \tlcvskill{Redis}
+    \tlcvskill{Kafka}
+    \tlcvskill{GraphQL}
+\end{tlcvskills}
+
+% ------------------------------------------------------------------------------
+% PATENTI DI GUIDA
+% ------------------------------------------------------------------------------
+\tlcvsection{Patenti di Guida}
+
+\begin{tlcvdrivinglicences}
+    \tlcvdrivinglicence{AM}
+    \tlcvdrivinglicence{B}
+\end{tlcvdrivinglicences}
+
+% ------------------------------------------------------------------------------
+% DATA E FIRMA (PER IL CURRICULUM VITAE)
+% ------------------------------------------------------------------------------
+% Inserisce a fondo pagina il luogo, la data odierna e la riga per la firma autografa.
+\tlcvsignature[Roma]
+
+\end{document}

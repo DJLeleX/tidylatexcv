@@ -1,0 +1,244 @@
+% ==============================================================================
+% DOCUMENT CLASS & OPTIONS
+% ==============================================================================
+% Available Options:
+%
+% 1. LANGUAGE:
+%    - english            : (Default) English labels and CEFR terminology.
+%    - italian            : Italian labels and official Italian Europass CEFR text.
+%
+% 2. COLOR PALETTES:
+%    - color-default      : (Default) Classic Europass Blue / Cool Grey
+%    - color-blue         : Sky Blue / Navy Text
+%    - color-blueblack    : Sky Blue / Solid Black Text
+%    - color-green        : Mint Accent / Forest Text
+%    - color-greenblack   : Mint Accent / Solid Black Text
+%    - color-violet       : Lavender Accent / Plum Text
+%    - color-violetblack  : Lavender Accent / Solid Black Text
+%
+% 3. LAYOUT & ASSETS:
+%    - nologo             : Hides the Europass logo in the footer.
+%    - nototpages         : Shows "Page X" instead of "Page X / Y" in the footer.
+%    - debug              : Enables 'showframe' to visualize margins and text boxes.
+%
+% Engine Support: Compiles cleanly under pdfLaTeX, XeLaTeX, and LuaLaTeX.
+% ==============================================================================
+\documentclass[
+    english,            % Try 'italian'
+    color-default,      % Try 'color-blue', 'color-blueblack', etc.
+    % nologo,           % Uncomment if you don't have europass_logo.pdf
+    % nototpages,       % Uncomment to hide total page count
+    % debug             % Uncomment to debug margins
+]{tidylatexcv}
+
+% ==============================================================================
+% GDPR / PRIVACY CONSENT
+% ==============================================================================
+% \tlcvgdpr           -> Uses the built-in legal GDPR text (in EN or IT).
+% \tlcvgdpr[Custom]   -> Overrides with your own custom statement.
+% Comment out to hide the GDPR notice completely.
+\tlcvgdpr
+
+\begin{document}
+
+% ==============================================================================
+% PAGE 1: COVER LETTER
+% ==============================================================================
+
+% Header for the letter (clean contact details)
+\begin{tlcvinfo}
+    \tlcvname{Alex Morgan, M.Sc.}
+    \tlcvaddress{Via Roma 123, 00100 Rome, Italy}
+    \tlcvphone{+39 06 1234567}
+    \tlcvemail{alex_morgan@example.com}
+    \tlcvwebsite{www.alex_morgan.dev}
+\end{tlcvinfo}
+
+% Recipient & Subject Setup
+\tlcvrecipient{Acme International GmbH}{Human Resources Department\\Tech-Park Strasse 45\\10115 Berlin, Germany}
+\tlcvsubject{Application for Senior Cloud Infrastructure Engineer (Ref. \#2026-ENG)}
+\tlcvopening{Dear Hiring Team,}
+\tlcvclosing{Sincerely,}
+
+% Letter Body
+\begin{tlcvcoverletter}
+    I am writing to express my enthusiastic interest in the Senior Cloud Infrastructure Engineer position currently open at Acme International. With over six years of hands-on experience designing, containerizing, and orchestrating scalable distributed architectures, I am eager to contribute to your engineering organization.
+
+    In my current role at TechCorp Solutions, I led the platform migration that shifted our central services into a fully automated Kubernetes environment. This initiative reduced provisioning times from days to minutes while driving down monthly infrastructure costs by 22\%.
+
+    I look forward to discussing how my background in distributed systems and platform reliability aligns with your upcoming roadmaps. Thank you for your time and consideration.
+\end{tlcvcoverletter}
+
+% Date & Signature for the Cover Letter
+\tlcvsignature[Rome]
+
+% ==============================================================================
+% PAGE 2+: CURRICULUM VITAE
+% ==============================================================================
+\newpage
+
+% Comprehensive CV Header (with photo, birthdate, nationalities, and socials)
+\begin{tlcvinfo}
+    % Profile Photo (Circular cropped, double bordered)
+    % Tip: If you don't have an image file yet, comment this line out.
+    % \tlcvphoto{photo.png} 
+
+    % Core Identity
+    \tlcvname{Alex Morgan, M.Sc.}
+    \tlcvdateofbirth{15/04/1994}
+    \tlcvgender{Non-binary}
+
+    % Nationalities (Can be called multiple times; joins with commas)
+    \tlcvnationality{Italian}
+    \tlcvnationality{Irish}
+
+    % Physical Address: \tlcvaddress[<optional icon>]{<Address>}
+    % Default icon: \faHome
+    \tlcvaddress{Via Roma 123, 00100 Rome, Italy}
+
+    % Phone: \tlcvphone[<optional icon>]{<Number>}
+    % Default icon: \faMobile*
+    \tlcvphone{+39 06 1234567}
+    \tlcvphone[\faWhatsapp]{+39 340 1234567}
+
+    % Email: \tlcvemail[<optional icon>]{<Email>}
+    \tlcvemail{alex_morgan@example.com}
+
+    % Websites & Socials: \tlcvwebsite or \tlcvsocial [<optional icon>]{<URL>}
+    \tlcvwebsite{www.alex_morgan.dev}
+    \tlcvsocial[\faLinkedin]{linkedin.com/in/alex_morgan}
+    \tlcvsocial[\faGithub]{github.com/alex_morgan}
+
+    % Instant Messaging: \tlcvim[<optional icon>]{<Handle/Number>}
+    % - If icon is \faTelegram -> Creates a clickable https://t.me/ link
+    % - If icon is \faWhatsapp -> Creates a clickable https://wa.me/ link
+    % - Any other icon/default -> Displays icon and plain text
+    \tlcvim[\faTelegram]{alex_morgan_dev}
+    \tlcvim[\faSignal]{+39 340 1234567}
+\end{tlcvinfo}
+
+% ------------------------------------------------------------------------------
+% WORK EXPERIENCE
+% ------------------------------------------------------------------------------
+\tlcvsection{Work Experience}
+
+% All values are enclosed in explicit braces {...} to prevent syntax errors
+% when values contain commas, macros, or colons.
+\tlcventry{
+    title        = {Senior Full-Stack Engineer},
+    organization = {TechCorp Solutions Ltd.},
+    link         = {techcorp.example.com},
+    date         = {03/2022 -- Present},
+    location     = {Milan, Italy},
+    sector       = {Information Technology \& Cloud Services},
+    description  = {
+        \begin{itemize}
+            \item Led the architectural migration of legacy monolith to microservices using Go and Kubernetes, reducing latency by 35\%.
+            \item Mentored 6 junior and mid-level developers, establishing CI/CD automation pipelines and test-driven development practices.
+            \item Spearheaded GDPR and SOC2 compliance across core user authentication services.
+        \end{itemize}
+    }
+}
+
+\tlcventry{
+    title        = {Software Developer},
+    organization = {InnoSoft Studio},
+    date         = {09/2019 -- 02/2022},
+    location     = {Rome, Italy},
+    link         = {innosoft.example.it},
+    description  = {Developed and maintained high-throughput REST APIs and GraphQL endpoints for client-facing financial dashboards. Collaborated directly with UI/UX designers to implement pixel-perfect responsive web components in React and TypeScript.}
+}
+
+% ------------------------------------------------------------------------------
+% EDUCATION AND TRAINING
+% ------------------------------------------------------------------------------
+\tlcvsection{Education and Training}
+
+\tlcventry{
+    title        = {Master of Science in Computer Science},
+    organization = {Sapienza University of Rome},
+    date         = {2017 -- 2019},
+    location     = {Rome, Italy},
+    eqf          = {7},
+    finalgrade   = {110/110 Cum Laude},
+    badge        = {https://bestr.it},
+    description  = {
+        \textbf{Thesis:} \textit{"Distributed Consensus Algorithms in High-Latency Mesh Networks"}. \\
+        Specialized in Distributed Systems, Cryptography, and Advanced Algorithm Design.
+    }
+}
+
+\tlcventry{
+    title        = {Bachelor of Science in Computer Engineering},
+    organization = {University of Naples Federico II},
+    date         = {2014 -- 2017},
+    location     = {Naples, Italy},
+    eqf          = {6},
+    finalgrade   = {108/110},
+    description  = {Core coursework in Computer Architecture, Operating Systems, Database Management, and Mathematics.}
+}
+
+% ------------------------------------------------------------------------------
+% LANGUAGE SKILLS
+% ------------------------------------------------------------------------------
+\tlcvsection{Language Skills}
+
+\begin{tlcvlanguages}
+    \tlcvlangicons 
+    \tlcvcefrlevels 
+
+    \tlcvmothertongue{Italian}
+
+    % \tlcvlanguage{Language}{Listening}{Reading}{Spoken Production}{Spoken Interaction}{Writing}
+    \tlcvlanguage{English}{C2}{C2}{C1}{C1}{C1}
+    \tlcvlanguagecertificate{IELTS Academic: 8.5 Overall (Issued 2023)}
+
+    \tlcvlanguage{Spanish}{B1}{B2}{A2}{A2}{A2}
+\end{tlcvlanguages}
+
+% ------------------------------------------------------------------------------
+% PERSONAL SKILLS & COMPETENCES
+% ------------------------------------------------------------------------------
+\tlcvsection{Digital \& Technical Skills}
+
+\begin{tlcvskills}[Programming Languages]
+    \tlcvskill{Go (Golang)}
+    \tlcvskill{Python}
+    \tlcvskill{TypeScript / JavaScript}
+    \tlcvskill{C/C++}
+    \tlcvskill{SQL}
+\end{tlcvskills}
+
+\begin{tlcvskills}[Cloud \& DevOps]
+    \tlcvskill{Docker}
+    \tlcvskill{Kubernetes}
+    \tlcvskill{AWS (ECS, Lambda, S3, RDS)}
+    \tlcvskill{Terraform}
+    \tlcvskill{GitHub Actions CI/CD}
+\end{tlcvskills}
+
+\begin{tlcvskills}[Frameworks \& Databases]
+    \tlcvskill{React}
+    \tlcvskill{Node.js}
+    \tlcvskill{PostgreSQL}
+    \tlcvskill{Redis}
+    \tlcvskill{Kafka}
+    \tlcvskill{GraphQL}
+\end{tlcvskills}
+
+% ------------------------------------------------------------------------------
+% DRIVING LICENCES
+% ------------------------------------------------------------------------------
+\tlcvsection{Driving Licences}
+
+\begin{tlcvdrivinglicences}
+    \tlcvdrivinglicence{AM}
+    \tlcvdrivinglicence{B}
+\end{tlcvdrivinglicences}
+
+% ------------------------------------------------------------------------------
+% DATE & SIGNATURE (FOR THE CV)
+% ------------------------------------------------------------------------------
+\tlcvsignature[Rome]
+
+\end{document}
